@@ -18,14 +18,14 @@ See [nova_compute](http://docs.ansible.com/nova_compute_module.html) documentati
 
 ```yaml
 ---
-  - hosts: localhost
+- hosts: localhost
   gather_facts: no
   connection: local
   tasks:
     - include: pre_play.yml
 
-    - hosts: "{{ target_group }}"
-    [...]
+- hosts: "{{ target_group }}"
+[...]
 ```
 
 ## Playbook invocation
