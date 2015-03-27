@@ -1,0 +1,26 @@
+- nova_compute:
+    auth_url: https://cloud.forgeservicelab.fi:5001/v2.0/
+    floating_ip_pools:
+      - public
+    flavor_id: 82326aee-1832-42ff-9992-42062c5d29c9
+    image_id: 99077ebd-978b-40a7-9787-f44f0fbafdcf
+    key_name: XXXXXXX
+    login_tenant_name: XXXXXX
+    login_username: XXXXXX
+    login_password: XXXXXX
+    name: hostname
+    security_groups: default,XXXXXX
+    nics:
+      - net-id: XXXXXX
+  register: nova_result
+
+- add_host:
+    name: redmine
+    group: "{{ target_group }}"
+    ansible_ssh_host: "{{ nova_result.public_ip }}"
+    ansible_ssh_user: debian
+
+- wait_for:
+    host: "{{ nova_result.public_ip}}"
+    port: 22
+    search_regex: "^SSH"
