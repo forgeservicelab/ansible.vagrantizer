@@ -3,7 +3,8 @@
     floating_ip_pools:
       - public
     flavor_id: 82326aee-1832-42ff-9992-42062c5d29c9
-    image_id: 99077ebd-978b-40a7-9787-f44f0fbafdcf
+#    image_id: 99077ebd-978b-40a7-9787-f44f0fbafdcf
+    image_name: Debian-7.7-server-amd64
     key_name: XXXXXXX
     login_tenant_name: XXXXXX
     login_username: XXXXXX
